@@ -1,3 +1,8 @@
+package connectfour;
+
+import connectfour.Board;
+import connectfour.Game;
+import connectfour.GamePanel;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;

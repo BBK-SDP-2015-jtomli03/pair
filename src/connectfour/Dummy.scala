@@ -1,3 +1,5 @@
+package connectfour
+
 import java.util.Random
 
 class Dummy(private var myColour: Player) extends Solver {

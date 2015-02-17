@@ -1,3 +1,5 @@
+package connectfour
+
 import java.awt.event.{ActionEvent, ActionListener}
 import java.awt.{Color, Dimension, Graphics, Graphics2D}
 import java.util.concurrent.Semaphore

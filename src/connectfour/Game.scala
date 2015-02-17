@@ -1,3 +1,4 @@
+package connectfour
 
 object Game extends App {
 

@@ -1,3 +1,5 @@
+package connectfour
+
 import scala.collection.mutable.ListBuffer
 
 object Board {

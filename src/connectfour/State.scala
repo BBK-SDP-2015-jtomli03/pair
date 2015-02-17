@@ -1,7 +1,9 @@
-import java.io.FileNotFoundException
-import java.io.PrintWriter
-import java.io.UnsupportedEncodingException
-import State._
+package connectfour
+
+import java.io.{FileNotFoundException, PrintWriter, UnsupportedEncodingException}
+
+import connectfour.State._
+
 import scala.beans.BeanProperty
 
 object State {

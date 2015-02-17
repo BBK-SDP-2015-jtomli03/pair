@@ -1,7 +1,5 @@
-import java.util.List
-import AI._
+package connectfour
 //remove if not needed
-import scala.collection.JavaConversions._
 
 object AI {
 

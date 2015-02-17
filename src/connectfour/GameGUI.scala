@@ -1,3 +1,5 @@
+package connectfour
+
 object GameGUI extends App {
   /* -------------------------- Change these to play game differently. -------------------------- */
 

@@ -1,3 +1,5 @@
+package connectfour
+
 class Move(var player: Player, var column: Int) {
 
   if (player == null) {

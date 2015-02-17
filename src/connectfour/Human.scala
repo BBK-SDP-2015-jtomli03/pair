@@ -1,3 +1,5 @@
+package connectfour
+
 import java.util.concurrent.Semaphore
 
 class Human(private var player: Player) extends Solver {

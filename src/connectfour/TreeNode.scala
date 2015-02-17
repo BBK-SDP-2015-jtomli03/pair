@@ -1,3 +1,5 @@
+package connectfour
+
 case class TreeNode(private var left: TreeNode, v: Int, private var right: TreeNode) {
   private var value: Int = v
 
