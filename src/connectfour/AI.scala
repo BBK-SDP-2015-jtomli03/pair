@@ -1,6 +1,8 @@
 package connectfour
 //remove if not needed
 
+// comment added by Alex
+
 object AI {
 
   def createGameTree(s: State, d: Int) {
