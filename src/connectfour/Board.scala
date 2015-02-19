@@ -1,6 +1,6 @@
 package connectfour
 
-import scala.collection.mutable.ListBuffer
+import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 
 object Board {
   val NUM_ROWS = 6
@@ -61,16 +61,14 @@ class Board {
    * of columns that are not full. Thus, if all columns are full, return an
    * array of length 0.
    */
-  def getPossibleMoves(p: Player): Array[Move] = ???
+  def getPossibleMoves(p: Player): Array[Move] = {
+    val possMoves = ArrayBuffer[Move]()
+    if(hasConnectFour() == null)
+      for(c <- 0 until Board.NUM_COLS if board(0)(c) == null) possMoves.append(new Move(p, c))
+    possMoves.toArray
+  }
 
-    //check if 4 in a row using method hasConnectFour() below  --> if yes then possmoves = 0
-    //else
-    //Move[] possMoves = new Move[];
-    //for(i = 0; i < NUM_COLS; i++)
-    //if (board[0][i] == null){
-    //  possMoves[i] ==  new Move(p, i)
-    //}
-    //return possMoves;
+
 
 
   override def toString(): String = toString("")
