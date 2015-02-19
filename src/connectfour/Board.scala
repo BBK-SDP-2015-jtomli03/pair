@@ -37,9 +37,41 @@ class Board {
 
   def getTile(row: Int, col: Int): Player = board(row)(col)
 
-  def makeMove(move: Move): Unit = ???
+  /**
+   * Apply Move move to this Board by placing a piece from move's
+   * player into move's column on this Board.
+   * Throw an IllegalArgumentException if move's column is full on this Board <-- this is already handled in Game.runGame() before reaching this method,
+   * ie, you cannot reach this method unless the move can be made.
+   */
+  def makeMove(move: Move): Unit = {
+    var i= Board.NUM_ROWS - 1 // -1 to prevent overflow
+    while (getTile(i, move.column) != null && i > 0){
+      i -= 1
+    }
+    board(i)(move.column) = move.player
+  }
 
+  /**
+   * Return an array of all moves that can possibly be made by Player p on this
+   * board. The moves must be in order of increasing column number.
+   * Note: The length of the array must be the number of possible moves.
+   * Note: If the board has a winner (four things of the same colour in a row), no
+   * move is possible because the game is over.
+   * Note: If the game is not over, the number of possible moves is the number
+   * of columns that are not full. Thus, if all columns are full, return an
+   * array of length 0.
+   */
   def getPossibleMoves(p: Player): Array[Move] = ???
+
+    //check if 4 in a row using method hasConnectFour() below  --> if yes then possmoves = 0
+    //else
+    //Move[] possMoves = new Move[];
+    //for(i = 0; i < NUM_COLS; i++)
+    //if (board[0][i] == null){
+    //  possMoves[i] ==  new Move(p, i)
+    //}
+    //return possMoves;
+
 
   override def toString(): String = toString("")
 
