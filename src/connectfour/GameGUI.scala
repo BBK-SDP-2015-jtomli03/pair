@@ -9,8 +9,8 @@ object GameGUI extends App {
          * a player parameter; the AI constructor has a player and depth
          * as parameters, with the depth used to recurse when searching the
          * game space. */
-  //val p1= new AI(RED, 6); //note in java version the depth = 5
-  //val p2 = new AI(YELLOW, 6);
+  val p1= new AI(RED, 6); //note in java version the depth = 5
+  val p2 = new AI(YELLOW, 6);
   //val p1 = new Human(RED);
   //val p2= new Human(YELLOW);
   //val p1 = new Dummy(RED);
@@ -94,7 +94,8 @@ object GameGUI extends App {
 
   /* ********* Put any testing methods that you write here.  *******
    * *** We will not look at this class anyway ***/
-/*
+
+ /*
 * Tests the method getPossibleMoves() in class Board.
 * Tests this method works if the board is filled a column at a time without a connect four,
 * and tests this method works if there is a connect four - both horizontal and diagonal (ie returns no moves as the game is finished)
@@ -175,10 +176,9 @@ object GameGUI extends App {
 
   /* --------------------------------- Do not change below here. --------------------------------- */
 
-  //val game = new Game(p1, p2);
-  //game.setGUI(new GUI(game, Board.NUM_COLS, Board.NUM_ROWS));
-  //game.runGame();
+  val game = new Game(p1, p2);
+  game.setGUI(new GUI(game, Board.NUM_COLS, Board.NUM_ROWS));
+  game.runGame();
 
-  testGetPossibleMoves()
 
 }
