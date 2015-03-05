@@ -43,9 +43,41 @@ class AI(private var player: Player, private var depth: Int) extends Solver {
    * tree rooted at s, indicating how desirable that java.State is to this player.
    */
   def minimax(s: State): Unit  = {
-    //todo
+    AI.createGameTree(s, depth)
+    max(s)
+  }
 
+  def max(s: State): Int = {
+    if(!s.hasChildren){
+      s.setValue(evaluateBoard(s.getBoard))
+      s.getValue
     }
+    else{
+      var max = Integer.MIN_VALUE
+      s.getChildren foreach(child => {
+        val score = min(child)
+        if(score > max) max = score
+      })
+      s.setValue(max)
+      max
+    }
+  }
+
+  def min(s:State): Int = {
+    if(!s.hasChildren){
+      s.setValue(evaluateBoard(s.getBoard))
+      s.getValue
+    }
+    else{
+      var min = Integer.MAX_VALUE
+      s.getChildren foreach(child => {
+        val score = max(child)
+        if(score < min) min = score
+      })
+      s.setValue(min)
+      min
+    }
+  }
 
 
   /**
