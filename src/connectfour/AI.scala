@@ -1,5 +1,7 @@
 package connectfour
 
+import scala.collection.mutable.ArrayBuffer
+
 
 object AI {
   /**
@@ -34,7 +36,12 @@ class AI(private var player: Player, private var depth: Int) extends Solver {
    * See Solver.getMoves for the specification. Could return null.
    */
   override def getMoves(b: Board): Array[Move] = {
-    ???
+    val moves = ArrayBuffer[Move]()
+    val newState = new State(player, b, null)
+    minimax(newState)
+    val states = newState.getChildren.filter((child: State) => child.getValue == newState.getValue)
+    states foreach(state => moves.append(state.getLastMove))
+    moves.toArray
   }
 
   /**
