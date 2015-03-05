@@ -6,7 +6,7 @@ package connectfour
 
 object Game extends App {
 
-  private val SLEEP_INTERVAL = 10
+  private val SLEEP_INTERVAL = 100
 
   val p1 = new Dummy(RED)
   val p2 = new Dummy(YELLOW)

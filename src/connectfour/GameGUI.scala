@@ -102,8 +102,8 @@ object GameGUI extends App {
  */
   def testGetPossibleMoves() = {
     val b = new Board()
-    var firstPlayerInColumn = RED
-    var secondPlayerInColumn = YELLOW
+    val firstPlayerInColumn = RED
+    val secondPlayerInColumn = YELLOW
     val moves = b.getPossibleMoves(RED);
     println("Board is empty. All columns should be a possible move: ")
     for (m <- moves) System.out.println(m)
@@ -173,12 +173,34 @@ object GameGUI extends App {
     }
   }
 
+  def testInitializeChildren() = {
+    val b = new Board()
+    val firstPlayer = RED
+    val secondPlayer = YELLOW
+    val state1 = new State(firstPlayer, b, null)
+    state1.initializeChildren()
+    println("Printing child states for an empty board...")
+    state1.getChildren foreach(state => println(state.getBoard.toString()))
+    println()
+    fillColumnAlternately(b, 0, firstPlayer, secondPlayer) //fill column 0
+    state1.initializeChildren()
+    println("Printing child states after column 0 filled...")
+    state1.getChildren foreach(state => println(state.getBoard.toString()))
+    println()
+    fillColumnAlternately(b, 6, firstPlayer, secondPlayer) //fill column 0
+    state1.initializeChildren()
+    println("Printing child states after columns 0 and 6 filled...")
+    state1.getChildren foreach(state => println(state.getBoard.toString()))
+  }
+
 
   /* --------------------------------- Do not change below here. --------------------------------- */
 
   val game = new Game(p1, p2);
   game.setGUI(new GUI(game, Board.NUM_COLS, Board.NUM_ROWS));
   game.runGame();
+
+
 
 
 }

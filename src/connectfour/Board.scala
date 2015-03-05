@@ -37,6 +37,19 @@ class Board {
 
   def getTile(row: Int, col: Int): Player = board(row)(col)
 
+  /*
+  * Makes a copy of a board and returns the copy
+   */
+  def copy(): Board = {
+    val copy = new Board()
+    for(r <- 0 until Board.NUM_ROWS; c <- 0 until Board.NUM_COLS){
+      if (getTile(r, c) != null){         //if Player found on board to be copied
+        copy.board(r)(c) = getTile(r, c) //add Player to the copy
+      }
+    }
+    copy
+  }
+
   /**
    * Apply Move move to this Board by placing a piece from move's
    * player into move's column on this Board.
@@ -68,9 +81,6 @@ class Board {
         possMoves.append(new Move(p, c))
     possMoves.toArray
   }
-
-
-
 
   override def toString(): String = toString("")
 

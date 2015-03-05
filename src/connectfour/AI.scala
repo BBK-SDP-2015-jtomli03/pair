@@ -1,5 +1,6 @@
 package connectfour
 
+
 object AI {
   /**
    * Generate the game tree with root s of depth d.
@@ -13,10 +14,7 @@ object AI {
    * Note: If s has a winner (four in a row), it should be a leaf.
    */
   def createGameTree(s: State, d: Int): Unit = {
-    // Note: This method must be recursive, recurse on d,
-    // which should get smaller with each recursive call
-
-    // TODO
+    ???
   }
 
   /**
@@ -32,16 +30,20 @@ class AI(private var player: Player, private var depth: Int) extends Solver {
   /**
    * See Solver.getMoves for the specification. Could return null.
    */
-  override def getMoves(b: Board): Array[Move] = ???
+  override def getMoves(b: Board): Array[Move] = {
+    ???
+  }
 
   /**
    * State s is a node of a game tree (i.e. the current State of the game).
    * Use the Minimax algorithm to assign a numerical value to each State of the
    * tree rooted at s, indicating how desirable that java.State is to this player.
    */
-  def minimax(s: State): Unit = {
+  def minimax(s: State): Unit  = {
     //todo
-  }
+
+    }
+
 
   /**
    * Evaluate the desirability of Board b for this player

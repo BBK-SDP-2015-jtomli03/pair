@@ -5,6 +5,7 @@ import java.io.{FileNotFoundException, PrintWriter, UnsupportedEncodingException
 import connectfour.State._
 
 import scala.beans.BeanProperty
+import scala.collection.mutable.ArrayBuffer
 
 /**
  * An instance represents the state of a game of Connect Four.
@@ -39,6 +40,17 @@ class State(@BeanProperty var player: Player, @BeanProperty var board: Board, @B
   var value: Int = 0
 
   /**
+   * Checks if a state has children
+   * @return Boolean true if has children, false if not
+   */
+  def hasChildren: Boolean ={
+    children.length match {
+        case 0 => false
+        case _ => true
+    }
+  }
+
+  /**
    * Retrieves the possible moves and initializes this State's children.
    * The result is that this State's children reflect the possible
    * States that can exist after the next move. Remember, in the
@@ -47,7 +59,16 @@ class State(@BeanProperty var player: Player, @BeanProperty var board: Board, @B
    * initialize all descendants.
    */
   def initializeChildren(): Unit = {
-    //todo
+    val states = ArrayBuffer[State]()
+    board.getPossibleMoves(player) foreach (move => {
+      val newBoard = board.copy()
+      newBoard.makeMove(move)
+      player match{
+        case RED => states.append(new State(YELLOW, newBoard, move))
+        case YELLOW => states.append(new State(RED, newBoard, move))
+      }
+    })
+    setChildren(states.toArray)
   }
 
   /**
@@ -81,6 +102,7 @@ class State(@BeanProperty var player: Player, @BeanProperty var board: Board, @B
    * indented an additional ind characters. d is the depth of this state.
    */
   private def toStringHelper(d: Int, ind: String): String = {
+    println("in string helper")
     var str = ind + player + " to play\n"
     str = str + ind + "Value: " + value + "\n"
     str = str + board.toString(ind) + "\n"
