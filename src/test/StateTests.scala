@@ -12,7 +12,7 @@ class StateTests extends FlatSpec with Matchers {
     children.length should be (Board.NUM_COLS)
   }
   
-  it should "have children all with player YELLOW, assuming RED goes first" in {
+  "Children of the initial state" should "have player YELLOW, assuming RED goes first" in {
 	  val initialState = new State(RED, new Board(), null)
 	  initialState.initializeChildren()
 	  val children = initialState.getChildren()
