@@ -5,11 +5,11 @@ import connectfour._
 
 class BoardTests extends FlatSpec with Matchers {
   
-  "An empty board" should "allow a player to make the first move" in {
+  "An empty board" should "allow a player to make the first move and correctly report its location" in {
     val board = new Board()
     val move = new Move(RED, 0)
     board.makeMove(move)
-    board.getPlayer(5, 0) should be (RED)
+    board.getPlayer(Board.NUM_ROWS - 1, 0) should be (RED)
   }
   
   it should "report that there are Board.NUM_COLS possible moves" in {
@@ -18,6 +18,15 @@ class BoardTests extends FlatSpec with Matchers {
     moves.length should be (Board.NUM_COLS)
   }
   
+  "A board with one token in each column" should "report that there are Board.NUM_COLS possible moves" in {
+    val board = new Board()
+    for (i <- 0 until Board.NUM_COLS) {
+      if (i % 2 == 0) board.makeMove(new Move(RED, i)) else board.makeMove(new Move(YELLOW, i))
+    }
+    val moves = board.getPossibleMoves(RED)
+    moves.length should be (Board.NUM_COLS)
+  }
+    
   "A board with a full column" should "report there are Board.NUM_COLS - 1 possible moves" in {
     val board = new Board()
     for (i <- 1 to Board.NUM_ROWS) {
@@ -51,6 +60,6 @@ class BoardTests extends FlatSpec with Matchers {
     }
     val moves = board.getPossibleMoves(YELLOW)
     moves.length should be (0)
-  }
-  
+  }  
+ 
 }
