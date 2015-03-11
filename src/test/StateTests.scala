@@ -20,4 +20,11 @@ class StateTests extends FlatSpec with Matchers {
 		  child.getPlayer() should be (YELLOW)
 	  }
   }
+  
+  it should "report that the correct player made the previous move" in {
+    val initialState = new State(RED, new Board(), null)
+    initialState.initializeChildren()
+    val children = initialState.getChildren()
+    (children) foreach (child => child.getLastMove().player should be (RED))    
+  }
 }
