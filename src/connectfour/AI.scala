@@ -40,8 +40,8 @@ class AI(private var player: Player, private var depth: Int) extends Solver {
     val newState = new State(player, b, null)
     minimax(newState)
     newState.getChildren
-      .filter((child: State) => child.getValue == newState.getValue)
-      .foreach(child => moves.append(child.getLastMove))
+      .filter(_.getValue == newState.getValue)
+      .foreach(child => moves.append(child.lastMove))
     moves.toArray
   }
 
@@ -55,6 +55,10 @@ class AI(private var player: Player, private var depth: Int) extends Solver {
     max(s)
   }
 
+  /**
+   * If State s has no children then set its value and return that value
+   * If State s has children then return the maximum value of its child states
+   */
   def max(s: State): Int = {
     if(!s.hasChildren){
       s.setValue(evaluateBoard(s.getBoard))
@@ -71,6 +75,10 @@ class AI(private var player: Player, private var depth: Int) extends Solver {
     }
   }
 
+  /**
+   * If State s has no children then set its value and return that value
+   * If State s has children then return the minimum value of its child states
+   */
   def min(s:State): Int = {
     if(!s.hasChildren){
       s.setValue(evaluateBoard(s.getBoard))

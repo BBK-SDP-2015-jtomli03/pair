@@ -45,8 +45,8 @@ class State(@BeanProperty var player: Player, @BeanProperty var board: Board, @B
    */
   def hasChildren: Boolean ={
     children.length match {
-        case 0 => false
-        case _ => true
+      case 0 => false
+      case _ => true
     }
   }
 

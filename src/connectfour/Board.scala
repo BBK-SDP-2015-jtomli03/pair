@@ -37,8 +37,8 @@ class Board {
 
   def getTile(row: Int, col: Int): Player = board(row)(col)
 
-  /*
-  * Makes a copy of a board and returns the copy
+  /**
+   * Makes a copy of a board and returns the copy
    */
   def copy(): Board = {
     val copy = new Board()
@@ -57,7 +57,7 @@ class Board {
    * ie, you cannot reach this method unless the move can be made.
    */
   def makeMove(move: Move): Unit = {
-    var i= Board.NUM_ROWS - 1 // -1 to prevent overflow
+    var i = Board.NUM_ROWS - 1 // -1 to prevent overflow
     while (getTile(i, move.column) != null && i > 0){
       i -= 1
     }
