@@ -9,8 +9,8 @@ object GameGUI extends App {
          * a player parameter; the AI constructor has a player and depth
          * as parameters, with the depth used to recurse when searching the
          * game space. */
-  val p1= new AI(RED, 6); //note in java version the depth = 5
-  val p2 = new AI(YELLOW, 6);
+  val p1= new AI(RED, 3); //note in java version the depth = 5
+  val p2 = new AI(YELLOW, 3);
   //val p1 = new Human(RED);
   //val p2= new Human(YELLOW);
   //val p1 = new Dummy(RED);

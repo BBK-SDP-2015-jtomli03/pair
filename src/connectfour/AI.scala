@@ -17,7 +17,7 @@ object AI {
    */
   def createGameTree(s: State, d: Int): Unit = {
     if(d > 0){
-      s.initializeChildren() //produces an array of the states after all poss moves
+      s.initializeChildren()
       s.getChildren foreach (childState => createGameTree(childState, d-1))
     }
   }
@@ -39,8 +39,9 @@ class AI(private var player: Player, private var depth: Int) extends Solver {
     val moves = ArrayBuffer[Move]()
     val newState = new State(player, b, null)
     minimax(newState)
-    val states = newState.getChildren.filter((child: State) => child.getValue == newState.getValue)
-    states foreach(state => moves.append(state.getLastMove))
+    newState.getChildren
+      .filter((child: State) => child.getValue == newState.getValue)
+      .foreach(child => moves.append(child.getLastMove))
     moves.toArray
   }
 
