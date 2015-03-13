@@ -40,7 +40,7 @@ class AI(private var player: Player, private var depth: Int) extends Solver {
     val newState = new State(player, b, null)
     minimax(newState)
     val states = newState.getChildren.filter((child: State) => child.getValue == newState.getValue)
-    states foreach(state => moves.append(state.getLastMove))
+    states.foreach(state => moves.append(state.getLastMove))
     moves.toArray
   }
 
