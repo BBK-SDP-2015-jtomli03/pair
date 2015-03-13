@@ -6,11 +6,11 @@ Connect Four is a two player game where each player takes a turn in dropping a c
 
 There are 3 types of player available;
   
-  Human - a human player makes a move of their choosing on the board.
+  **Human** - a human player makes a move of their choosing on the board.
   
-  Dummy - a dummy player makes a random move on the board.
+  **Dummy** - a dummy player makes a random move on the board.
   
-  AI - a version of artificial intelligence that makes its next move based on the best move returned from the minimax algorithm calculated to a chosen depth.
+  **AI** - a version of artificial intelligence that makes its next move based on the best move returned from the minimax algorithm calculated to a chosen depth.
   
 Each type of player can play against its own type or one of the other types of player.
 
@@ -20,7 +20,7 @@ Each type of player can play against its own type or one of the other types of p
   
   2) If playing with AI, then in its constructor you can amend the depth of the game tree for use with the minimax algorithm. The higher the value, the more accurate the AI is in making its best possible move, but the slower it is in making a move. From depth 6 you will find that the game slows significantly. 
   
-  3) Once the playuers have been set just simply run GameGUI to start play.
+  3) Once the players have been set just simply run GameGUI to start play.
 
 
 
