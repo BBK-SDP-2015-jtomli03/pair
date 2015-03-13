@@ -45,8 +45,8 @@ class State(@BeanProperty var player: Player, @BeanProperty var board: Board, @B
    */
   def hasChildren: Boolean ={
     children.length match {
-      case 0 => false
-      case _ => true
+        case 0 => false
+        case _ => true
     }
   }
 
@@ -102,6 +102,7 @@ class State(@BeanProperty var player: Player, @BeanProperty var board: Board, @B
    * indented an additional ind characters. d is the depth of this state.
    */
   private def toStringHelper(d: Int, ind: String): String = {
+    println("in string helper")
     var str = ind + player + " to play\n"
     str = str + ind + "Value: " + value + "\n"
     str = str + board.toString(ind) + "\n"

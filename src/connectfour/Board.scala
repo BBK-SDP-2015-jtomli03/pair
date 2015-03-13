@@ -37,9 +37,9 @@ class Board {
 
   def getTile(row: Int, col: Int): Player = board(row)(col)
 
-  /**
+  /*
   * Makes a copy of a board and returns the copy
-  */
+   */
   def copy(): Board = {
     val copy = new Board()
     for(r <- 0 until Board.NUM_ROWS; c <- 0 until Board.NUM_COLS){
