@@ -4,6 +4,8 @@ import org.scalatest._
 import connectfour._
 
 class BoardTests extends FlatSpec with Matchers {
+
+  // Suite of tests for the class Board
   
   "An empty board" should "allow a player to make the first move and correctly report its location" in {
     val board = new Board()
