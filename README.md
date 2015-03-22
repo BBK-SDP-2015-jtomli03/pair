@@ -1,4 +1,11 @@
-# Game of Connect Four
+# Game of Connect Four ~ Pairs Programming ~ Scala
+
+# This Version By
+
+Joanne Tomlinson (jtomli03)
+Alex Wollenschlaeger (awolle01)
+
+# The Game
 
 Connect Four is a two player game where each player takes a turn in dropping a coloured disc from the top of the game board. The pieces fall straight down, occupying the next available space in the column. The winner of the game is the first player to get a row of four of your own colour discs next to each other (either vertically, horizontally, or diagonally). This version has a graphical GUI to enable play.
 
